@@ -1,0 +1,49 @@
+exec(open('main.py').read())
+
+import os
+os.listdir()
+
+
+import os
+os.remove('filename.py')
+
+#Script for removing all files
+import os
+a = os.listdir()
+for each_a in a:
+   os.remove(a)
+   
+#Check micropython version
+import os
+os.uname()
+
+
+import uos
+info = uos.stat("filename")
+filesize = info[6]
+
+#Script for flashing/eraseing ESP32 firmware (Micropython)
+#Need to do "pip install esptool" before doing flashing/eraseing
+#Case for ESP32-WROOM-32 at COM17 with firmware ESP32_GENERIC-20240602-v1.23.0.bin
+esptool --chip esp32 --port COM17 erase_flash
+esptool --chip esp32 --port COM17 --baud 460800 write_flash -z 0x1000 ESP32_GENERIC-20240602-v1.23.0.bin
+
+
+#Arduino Nano ESP32 INFO_UF2.TXT
+TinyUF2 Bootloader 0.10.2 - tinyusb (0.12.0-203-ga4cfd1c69)
+Model: Adafruit Feather ESP32-S3 No PSRAM
+Board-ID: ESP32-S3-Feather-revC
+Date: Jun 24 2022
+
+
+#Procedures to program the firmware of Arduino Nano ESP32
+Use wire to short Pin B1 and GND and press the RESET button, at that time, green or blue LED will be on.
+At that moment, use "Device Manager" to check which COM port is connected (in this case is COM6)
+Then do the following:
+esptool --chip ESP32 --port COM6 erase_flash
+esptool --chip ESP32-S3 --port COM6 --baud 460800 write_flash -z 0x1000 ARDUINO_NANO_ESP32-20240602-v1.23.0.bin
+
+After flashing and use os.uname, you can see the message (or something like this)
+>>> os.uname()
+(sysname='esp32', nodename='esp32', release='1.23.0', version='v1.23.0 on 2024-06-02', machine='Arduino Nano ESP32 with ESP32S3')
+>>> 

@@ -1,0 +1,15 @@
+.idea
+.venv
+Device
+*.bin
+*.uf2
+*.png
+*.jpg
+*.wav
+/Arduino_Nano_ESP32/Debug/Common_Hardware_Driver
+/Arduino_Nano_ESP32/Debug/GUI_Demo
+/Arduino_Nano_ESP32/Debug/Timer_Counter
+/Arduino_RP2040_Connect/mp34dt05-a-micropython-driver
+/PicoMate_Lib
+
+
