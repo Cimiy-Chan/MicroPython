@@ -28,9 +28,9 @@ if __name__ == '__main__':
     rtc = pcf8563.PCF8563(i2c) #Instiate rtc object
 
     #Check critical time boundary at Date: 2024/12/31 Time:23/59/50 after 10 seconds
-    rtc.set_datetime((24, 12, 31, 6, 23, 59, 50)) #Format: (Year, Month, Date, Day, Hour, Min, Sec)
+    rtc.set_datetime((24, 12, 31, 23, 59, 50, 6)) #Format: (Year, Month, Date, Hour, Min, Sec, Day)
     while True:
         datetime_value = rtc.datetime()
         print (f'Date: {datetime_value[0]+2000:04d}/{datetime_value[1]:02d}/{datetime_value[2]:02d}  '
-               f'Time: {datetime_value[4]:02d}:{datetime_value[5]:02d}:{datetime_value[6]:02d} {day[datetime_value[3]]}')
+               f'Time: {datetime_value[3]:02d}:{datetime_value[4]:02d}:{datetime_value[5]:02d} {day[datetime_value[6]]}')
         time.sleep(1)

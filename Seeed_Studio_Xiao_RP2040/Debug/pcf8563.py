@@ -133,12 +133,14 @@ class PCF8563:
         return self.__bcd2dec(self.__read_byte(PCF8563_YEAR_REG))
 
     def datetime(self):
-        """Return a tuple such as (year, month, date, day, hours, minutes,
-        seconds).
+        """
+        Correction of return tuple to fit for localtime format of Micropython
+
+        Return a tuple such as (year, month, day, hours, minutes, seconds, date, 0).
         """
         return (self.year(), self.month(), self.date(),
-                self.day(), self.hours(), self.minutes(),
-                self.seconds())
+                self.hours(), self.minutes(),
+                self.seconds(), self.day(), 0)
 
     def write_all(self, seconds=None, minutes=None, hours=None, day=None,
                   date=None, month=None, year=None):
