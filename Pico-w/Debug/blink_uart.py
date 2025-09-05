@@ -11,9 +11,14 @@ Only one timer at RP2040
 
 from machine import Pin, Timer, UART
 
-led = Pin("LED", Pin.OUT)
+user_led = Pin(9)
+builtin_led = 'LED' #Built in LED at Pico Pi W
+
+led = Pin(user_led, Pin.OUT)
 timer0 = Timer() #No need to specify the timer id (ignore yellow snake)
-uart1 = UART(0, baudrate=9600, tx=Pin(4), rx=Pin(5)) #ID=0 for pico-W
+#uart1 = UART(0, baudrate=9600, tx=Pin(4), rx=Pin(5)) #ID=1 for pico-W GPIO4=Tx, GPIO5=Rx
+#uart1 = UART(1, baudrate=9600, tx=Pin(8), rx=Pin(9)) #ID=1 for pico-W GPIO8=Tx, GPIO9=Rx
+uart1 = UART(0, baudrate=9600, tx=Pin(12), rx=Pin(13)) #ID=0 for pico-W GPIO8=Tx, GPIO9=Rx
 
 is_blink = True
 msg = 'Serial message from Pico-W PyCharm'
@@ -32,4 +37,4 @@ def blink_led(self):
 
 
 
-timer0.init(period=200, mode=Timer.PERIODIC, callback=blink_led)
+timer0.init(period=100, mode=Timer.PERIODIC, callback=blink_led)

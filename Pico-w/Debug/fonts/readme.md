@@ -1,0 +1,1 @@
+Note that the VGA1 and VGA2 font style is no different. 

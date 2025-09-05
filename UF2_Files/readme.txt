@@ -1,0 +1,1 @@
+RPI_PICO-20250809-v1.26.0.uf2 for Xiao RP2040. It cannot be use with Pico 2 firmware
