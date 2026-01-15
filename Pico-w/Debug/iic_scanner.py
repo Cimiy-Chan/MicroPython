@@ -1,6 +1,5 @@
 # I2C Scanner MicroPython
 from machine import Pin, SoftI2C
-from serial.serialjava import device
 
 def iic_scan():
     # You can choose any other combination of I2C pins
